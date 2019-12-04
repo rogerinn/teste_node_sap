@@ -1,0 +1,45 @@
+ID: teta
+_schema-version: '2.1'
+parameters:
+   deploy_mode: html5-repo
+version: 0.0.1
+
+modules:
+ - name: teta_appRouter
+   type: approuter.nodejs
+   path: teta_appRouter
+   parameters:
+      disk-quota: 256M
+      memory: 256M
+   requires:
+    - name: teta_html5_repo_runtime
+
+
+ - name: teta_ui_deployer
+   type: com.sap.html5.application-content
+   path: teta_ui_deployer
+   requires:
+    - name: teta_html5_repo_host
+
+
+ - name: frago_assado
+   type: nodejs
+   path: frago_assado
+   provides:
+    - name: frago_assado_api
+      properties:
+         url: ${default-url}
+
+resources:
+ - name: teta_html5_repo_runtime
+   parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+   type: org.cloudfoundry.managed-service
+
+ - name: teta_html5_repo_host
+   parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+   type: org.cloudfoundry.managed-service
+
