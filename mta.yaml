@@ -22,11 +22,14 @@ modules:
     - name: teta_html5_repo_host
 
 
- - name: frago_assado
+ 
+
+
+ - name: testetes
    type: nodejs
-   path: frago_assado
+   path: testetes
    provides:
-    - name: frago_assado_api
+    - name: testetes_api
       properties:
          url: ${default-url}
 
