@@ -24,6 +24,12 @@ module.exports = (app) => {
 				rua: "Abaixo do pescoço",
 				numero: 533
 			}
+		}, {
+			nome: "Robson",
+			endereco: {
+				rua: "LALALA",
+				numero: 000
+			}
 		}];
 
 		res.send(JSON.stringify(dados));
